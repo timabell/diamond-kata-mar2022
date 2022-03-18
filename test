@@ -1,0 +1,2 @@
+#!/bin/sh -v
+dotnet test diamond-tests/diamond-tests.csproj
