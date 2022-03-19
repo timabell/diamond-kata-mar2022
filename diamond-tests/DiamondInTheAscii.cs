@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace diamond_tests;
 
@@ -28,7 +29,18 @@ public class DiamondInTheAscii
 		int first = (int)'A';
 		int last = (int)fattest;
 		int size = last - first + 1;
-		return MakeLine(first, size);
+		var lines = new List<string>();
+
+		// make first half of diamond
+		for (var lineNumber = 0; lineNumber<size;lineNumber++)
+		{
+			lines.Add(MakeLine(lineNumber, size));
+		}
+
+		// add mirrored lines to make a diamond
+		var mirroredLines = lines.Concat(lines.AsEnumerable().Reverse().Skip(1));
+
+		return string.Join("", mirroredLines);
 	}
 
 	public string MakeLine(int index, int max)

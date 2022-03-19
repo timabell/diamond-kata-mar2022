@@ -9,7 +9,7 @@ public class DiamondTests
 	public void SingleChar()
 	{
 		var actual = new DiamondInTheAscii().Bling('A');
-		actual.Should().Be("A");
+		actual.Should().Be("A\n");
 	}
 
 	[Test]
