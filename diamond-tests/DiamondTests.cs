@@ -5,30 +5,35 @@ namespace diamond_tests;
 
 public class DiamondTests
 {
-    [Test]
-    public void SingleChar()
-    {
-        var actual = new DiamondInTheAscii().Bling("A");
-        actual.Should().Be("A");
-    }
-}
+	[Test]
+	public void SingleChar()
+	{
+		var actual = new DiamondInTheAscii().Bling('A');
+		actual.Should().Be("A\n");
+	}
 
-public class DiamondInTheAscii
-{
-    /// <summary>
-    /// Makes ascii diamonds out of A-Z letters
-    /// eg:
-    /// _ _ A _ _
-    /// _ B _ B _
-    /// C _ _ _ C
-    /// _ B _ B _
-    /// _ _ A _ _
-    /// </summary>
-    /// <param name="fattest">The letter of the widest point in the diamond</param>
-    /// <returns>A pretty diamond string, newlines and all</returns>
-    public string Bling(string fattest)
-    {
-        return fattest;
-    }
+	[Test]
+	public void DiamondAB()
+	{
+		var actual = new DiamondInTheAscii().Bling('B');
+		actual.Should().Be(
+			" A\n" +
+			"B B\n" +
+			" A\n");
+	}
 
+	[TestCase(0, 1, "A\n")]
+	//
+	[TestCase(0, 2, " A\n")]
+	[TestCase(1, 2, "B B\n")]
+	//
+	[TestCase(0, 3, "  A\n")]
+	[TestCase(1, 3, " B B\n")]
+	[TestCase(2, 3, "C   C\n")]
+	public void TestmakeLine(int index, int max, string expected)
+	{
+		new DiamondInTheAscii().MakeLine(index, max).Should().Be(expected);
+	}
+	
+	// todo: coverage for exceptions
 }
