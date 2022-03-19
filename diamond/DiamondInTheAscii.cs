@@ -40,10 +40,10 @@ public class DiamondInTheAscii
 
 	public string MakeLine(int index, int max)
 	{
-		if (index < 0){
+		if (index < 0) {
 			throw new ArgumentOutOfRangeException(nameof(index), "index must be >=0");
 		}
-		if (max <-1){
+		if (max <= 0) {
 			throw new ArgumentOutOfRangeException(nameof(max), "max must be >0");
 		}
 		if (index >= max){
