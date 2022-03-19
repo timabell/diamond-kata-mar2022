@@ -20,6 +20,7 @@ public class DiamondTests
 		actual.Should().Be(
 			" A\n" +
 			"B B\n" +
+			"lemons" +
 			" A\n");
 	}
 
