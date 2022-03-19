@@ -24,21 +24,14 @@ public class DiamondInTheAscii
 		// just use the char indexes? how readable will that code be?
 		// can we make it less procedural and more declarative?
 
-		var charlist = Range('A', fattest).ToArray();
-		var size = charlist.Length;
-		return size.ToString();
+		int first = (int)'A';
+		int last = (int)fattest;
+		int size = last - first + 1;
+		return MakeLine(first, size);
 	}
 
-	/// <summary>
-	/// Some slightly-too-clever code for generating a list of chars.
-	///  Not so sure this is a good idea, just experimenting with approaches.
-	/// </summary>
-	/// <param name="start"></param>
-	/// <param name="end"></param>
-	/// <returns></returns>
-	private static IEnumerable<char> Range(char start, char end)
+	public string MakeLine(int index, int max)
 	{
-		// from https://stackoverflow.com/questions/5693854/a-to-z-list-of-char-from-enumerable-range/43563612#43563612
-		return Enumerable.Range((int)start, (int)end - (int)start + 1).Select(i => (char)i);
+		return ((char)(index+65)).ToString() + "\n";
 	}
 }
