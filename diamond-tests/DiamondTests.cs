@@ -8,16 +8,27 @@ public class DiamondTests
     [Test]
     public void SingleChar()
     {
-        var actual = new DiamondInTheAscii().Bling();
+        var actual = new DiamondInTheAscii().Bling("A");
         actual.Should().Be("A");
     }
 }
 
 public class DiamondInTheAscii
 {
-    public string Bling()
+    /// <summary>
+    /// Makes ascii diamonds out of A-Z letters
+    /// eg:
+    /// _ _ A _ _
+    /// _ B _ B _
+    /// C _ _ _ C
+    /// _ B _ B _
+    /// _ _ A _ _
+    /// </summary>
+    /// <param name="fattest">The letter of the widest point in the diamond</param>
+    /// <returns>A pretty diamond string, newlines and all</returns>
+    public string Bling(string fattest)
     {
-        return "A";
+        return fattest;
     }
 
 }
