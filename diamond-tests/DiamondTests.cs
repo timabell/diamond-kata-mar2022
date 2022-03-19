@@ -24,7 +24,7 @@ public class DiamondTests
 
 	[TestCase(0,1,"A\n")]
 	//
-	[TestCase(0,0," A\n")]
+	[TestCase(0,2," A\n")]
 	[TestCase(1,2,"B B\n")]
 	//
 	[TestCase(0,3,"  A\n")]

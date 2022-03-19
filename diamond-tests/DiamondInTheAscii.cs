@@ -32,6 +32,10 @@ public class DiamondInTheAscii
 
 	public string MakeLine(int index, int max)
 	{
-		return ((char)(index+65)).ToString() + "\n";
+		const int UPPERCASE_OFFSET = 65;
+		int indentSize = max - index -1;
+		var indent = new string(' ', indentSize);
+		var thischar = (char)(index + UPPERCASE_OFFSET);
+		return $"{indent}{thischar}\n";
 	}
 }
