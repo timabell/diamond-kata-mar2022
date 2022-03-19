@@ -1,1 +1,3 @@
-dotnet run --project diamond/diamond.csproj
+#!/bin/sh
+letter=X
+dotnet run --project diamond/diamond.csproj $letter
