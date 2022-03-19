@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,10 +33,32 @@ public class DiamondInTheAscii
 
 	public string MakeLine(int index, int max)
 	{
-		const int UPPERCASE_OFFSET = 65;
-		int indentSize = max - index -1;
+		if (index < 0){
+			throw new ArgumentOutOfRangeException(nameof(index), "index must be >=0");
+		}
+		if (max <-1){
+			throw new ArgumentOutOfRangeException(nameof(max), "max must be >0");
+		}
+		if (index >= max){
+			throw new ArgumentOutOfRangeException("index must be < max");
+		}
+
+		// I'm sure I'm missing some simpler maths here,
+		// let's get the tests passing then make the code better
+
+		int indentSize = max - index - 1;
 		var indent = new string(' ', indentSize);
-		var thischar = (char)(index + UPPERCASE_OFFSET);
-		return $"{indent}{thischar}\n";
+
+		const int UPPERCASE_OFFSET = 65;
+		var thisChar = (char)(index + UPPERCASE_OFFSET);
+		var leftChar = thisChar;
+
+		// only one char needed on first line, all the rest are pairs
+		char? rightChar = index == 0 ? null : thisChar;
+
+		var middleGapSize = Math.Max(0, index * 2 - 1);
+		var middleGap = new string(' ', middleGapSize);
+
+		return $"{indent}{leftChar}{middleGap}{rightChar}\n";
 	}
 }

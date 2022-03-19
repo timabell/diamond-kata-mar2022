@@ -22,16 +22,18 @@ public class DiamondTests
 			" A\n");
 	}
 
-	[TestCase(0,1,"A\n")]
+	[TestCase(0, 1, "A\n")]
 	//
-	[TestCase(0,2," A\n")]
-	[TestCase(1,2,"B B\n")]
+	[TestCase(0, 2, " A\n")]
+	[TestCase(1, 2, "B B\n")]
 	//
-	[TestCase(0,3,"  A\n")]
-	[TestCase(1,3," B B\n")]
-	[TestCase(2,3,"C   C\n")]
+	[TestCase(0, 3, "  A\n")]
+	[TestCase(1, 3, " B B\n")]
+	[TestCase(2, 3, "C   C\n")]
 	public void TestmakeLine(int index, int max, string expected)
 	{
-		new DiamondInTheAscii().MakeLine(index,max).Should().Be(expected);
+		new DiamondInTheAscii().MakeLine(index, max).Should().Be(expected);
 	}
+	
+	// todo: coverage for exceptions
 }
